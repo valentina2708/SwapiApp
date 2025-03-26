@@ -1,19 +1,33 @@
-import { View } from "react-native";
+import { ScrollView, StyleSheet } from "react-native";
 import { Card } from "react-native-paper";
-import Text from "../components/atoms/Text";
+import Detail from "../components/organisms/Details";
+import { useTheme } from "../Context/ThemeContext";
 
 export default function DetailScreen({ route }: any) {
-  const { item } = route.params;
+  const { item, type } = route.params;
+  const { theme } = useTheme();
 
   return (
-    <View style={{ flex: 1, padding: 20 }}>
-      <Card>
-        <Card.Content>
-          <Text variant="headlineLarge">{item.nombre}</Text>
-          <Text variant="bodyMedium">Información detallada:</Text>
-          <Text>{JSON.stringify(item, null, 2)}</Text>
-        </Card.Content>
+    <ScrollView
+      contentContainerStyle={[
+        styles.scrollContainer,
+        { backgroundColor: theme.colors.background },
+      ]}
+    >
+      <Card style={styles.card}>
+        <Detail item={item} type={type} />
       </Card>
-    </View>
+    </ScrollView>
   );
 }
+
+const styles = StyleSheet.create({
+  scrollContainer: {
+    flexGrow: 1,
+    padding: 20,
+    paddingBottom: 50,
+  },
+  card: {
+    borderRadius: 10,
+  },
+});

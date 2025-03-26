@@ -7,10 +7,12 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "jsx": "react-native",
+    "types": ["jest", "node"],
     "moduleResolution": "node",
+    "module": "CommonJS",
     "strict": true,
     "resolveJsonModule": true
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "jest.config.js"],
   "exclude": ["node_modules"]
 }

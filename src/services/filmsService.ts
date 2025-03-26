@@ -1,4 +1,4 @@
-import { peopleAdapter } from "../adapters/peopleAdapter";
+import { filmsAdapter } from "../adapters/filmsAdapter";
 
 const API_URL = "https://swapi.py4e.com/api";
 
@@ -7,5 +7,5 @@ export const fetchFilms = async () => {
   if (!response.ok) throw new Error("Error al obtener datos");
 
   const data = await response.json();
-  return data.results.map(peopleAdapter);
+  return data.results.map(filmsAdapter);
 };
