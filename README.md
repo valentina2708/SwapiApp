@@ -2,9 +2,10 @@
  ## NOMBRE DE LA APLICACIÓN: 
 Swapi es una aplicación móvil para gestionar los datos de la API de Star Wars, permitiendo explorar personajes, películas y planetas. Presenta la información en listas organizadas y vistas detalladas, con un diseño atractivo y fácil de usar.
 
-![screen1](https://github.com/user-attachments/assets/4be2a7c5-af38-4d01-9c92-94905dda9255)
-![screen3](https://github.com/user-attachments/assets/88d68f9a-5a14-45c8-a813-41238208db54)
-![screen4](https://github.com/user-attachments/assets/bf11f618-cdaa-4be6-82b4-0fcedf653370)
+
+![screen1](https://github.com/user-attachments/assets/d3ca4c5a-2144-4080-bd9a-38dadeb42469)
+![screen5](https://github.com/user-attachments/assets/48390387-48c7-4179-907d-4b74fc40ccca)
+![screen4](https://github.com/user-attachments/assets/540ec1c7-f8a8-4535-8aef-872af1033d05)
 
 ## CARACTERISTICAS:
 
