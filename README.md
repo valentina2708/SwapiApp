@@ -52,9 +52,9 @@ Swapi es una aplicación móvil para gestionar los datos de la API de Star Wars,
   - Expo Go (en Android/iOS)
 
 * Comandos para ejecutar la aplicación
- - gitclone: Clonar el respositorio de github
+ - git clone: Clonar el respositorio de github
  - npm install: Instalar todas las dependencias
- - npx expo start : Ejecutar la app, se genera un código QR que se debe escanear con Expo Go desde el celular para ver la app en el dispositivo.
+ - npx expo start: Ejecutar la app, se genera un código QR que se debe escanear con Expo Go desde el celular para ver la app en el dispositivo.
  - npm test: Ejecutar las pruebas unitarias
    
 
