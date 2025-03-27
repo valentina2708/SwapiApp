@@ -12,12 +12,19 @@ type DetailProps = {
 
 export default function Detail({ item, type }: DetailProps) {
   const { theme } = useTheme();
+  const isDarkMode = theme.dark;
 
   const [planetName, setPlanetName] = useState("Cargando...");
   const [films, setFilms] = useState<string[]>([]);
   const [characters, setCharacters] = useState<string[]>([]);
   const [planets, setPlanets] = useState<string[]>([]);
   const [residents, setResidents] = useState<string[]>([]);
+
+  const capitalizeFirstLetter = (text: string) => {
+    if (!text) return "";
+    return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
+  };
+  
 
   if (!item)
     return (
@@ -56,15 +63,19 @@ export default function Detail({ item, type }: DetailProps) {
     <ScrollView>
       <Card
         style={[
-          styles.container,
+          styles.card,
           {
             backgroundColor: theme.colors.background,
-            borderColor: theme.colors.accent,
-            shadowColor: theme.colors.accent,
+            borderColor: isDarkMode
+              ? theme.colors.accent
+              : theme.colors.primary,
+            shadowColor: isDarkMode
+              ? theme.colors.accent
+              : theme.colors.secondary,
           },
         ]}
       >
-        <Title variant="detalles" style={{ color: theme.colors.text }}>
+        <Title variant="detalles" style={{ color: isDarkMode ? theme.colors.text : theme.colors.accent }}>
           {item.nombre}
         </Title>
 
@@ -73,7 +84,7 @@ export default function Detail({ item, type }: DetailProps) {
             <DetailItem
               icon="account"
               label="Género"
-              value={item.genero}
+              value={capitalizeFirstLetter(item.genero)}
               theme={theme}
             />
             <DetailItem
@@ -87,24 +98,23 @@ export default function Detail({ item, type }: DetailProps) {
               label="Altura"
               value={`${item.altura} cm`}
               theme={theme}
-           
             />
             <DetailItem
               icon="eye"
               label="Color de ojos"
-              value={item.color_ojos}
+              value={capitalizeFirstLetter(item.color_ojos)}
               theme={theme}
             />
             <DetailItem
               icon="face-man-shimmer"
               label="Color de cabello"
-              value={item.color_cabello}
+              value={capitalizeFirstLetter(item.color_cabello)}
               theme={theme}
             />
             <DetailItem
               icon="format-color-fill"
               label="Color de piel"
-              value={item.color_Piel}
+              value={capitalizeFirstLetter(item.color_Piel)}
               theme={theme}
             />
             <DetailItem
@@ -201,13 +211,13 @@ export default function Detail({ item, type }: DetailProps) {
             <DetailItem
               icon="weather-cloudy"
               label="Clima"
-              value={item.clima}
+              value={capitalizeFirstLetter(item.clima)}
               theme={theme}
             />
             <DetailItem
               icon="terrain"
               label="Terreno"
-              value={item.terreno}
+              value={capitalizeFirstLetter(item.terreno)}
               theme={theme}
             />
             <DetailItem
@@ -264,25 +274,25 @@ const DetailItem = ({
       <Icon source={icon} size={24} color={theme.colors.accent} />
     </View>
     <View style={styles.textContainer}>
-    
       <Text style={[styles.label, { color: theme.colors.text }]}>{label}:</Text>
-      
+
       <Text style={[styles.value, { color: theme.colors.text }]}>{value}</Text>
     </View>
-
   </View>
 );
 
 const styles = StyleSheet.create({
-  container: {
+  card: {
     padding: 12,
-    borderWidth: 1,
+    borderWidth: 2,
     borderRadius: 10,
     borderColor: "transparent",
     elevation: 10,
-    backgroundColor: "white",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.6,
+    shadowRadius: 5,
   },
-  divider: { marginVertical: 10,  },
+  divider: { marginVertical: 10 },
   loading: { textAlign: "center", fontSize: 18, marginVertical: 20 },
   detailItem: { flexDirection: "row", alignItems: "center", marginVertical: 5 },
   iconContainer: { marginRight: 8, marginLeft: 5 },

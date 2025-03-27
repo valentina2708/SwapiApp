@@ -34,16 +34,16 @@ export default function HomeButton({ label, onPress, style, type }: Props) {
           name={getIconName(type)}
           size={40}
           color={theme.colors.accent}
+          testID={`icon-${type}`}
           style={[{ display: "flex", marginRight:32,  }, style]} 
         />
       )}
-      mode="contained"
       onPress={onPress}
       style={[
         styles.buttonBase,
         {
           backgroundColor: isDarkMode ? theme.colors.background :theme.colors.primary ,
-          borderColor: theme.colors.accent,
+          borderColor: isDarkMode ? theme.colors.accent : theme.colors.secondary,
           shadowColor: isDarkMode ? "transparent" : "rgba(0, 0, 0, 0.2)",
           justifyContent: "center" ,
         },

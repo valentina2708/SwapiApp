@@ -1,8 +1,10 @@
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { Provider as PaperProvider, } from "react-native-paper";
+import { Provider as PaperProvider,  } from "react-native-paper";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { View } from "react-native";
+
 
 import ListScreen from "./src/screens/ListScreen";
 import HomeScreen from "./src/screens/HomeScreen";
@@ -27,11 +29,12 @@ function AppContent() {
   return (
     <QueryClientProvider client={queryClient}>
       <PaperProvider theme={theme}>
+      <View style={{ flex: 1, backgroundColor: theme.colors.background }}>
         <NavigationContainer>
         <Stack.Navigator
          initialRouteName="Home"
        
-         screenOptions={({ route }) => ({
+         screenOptions={({ route,  }) => ({
            header: () => <AppBar title={route.name} />, 
          })}
           >
@@ -40,6 +43,7 @@ function AppContent() {
             <Stack.Screen name="Detalles" component={DetailScreen} />
           </Stack.Navigator>
         </NavigationContainer>
+        </View>
       </PaperProvider>
     </QueryClientProvider>
   );

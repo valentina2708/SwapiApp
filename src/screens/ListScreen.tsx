@@ -3,7 +3,7 @@ import { View } from "react-native";
 import { useFilms } from "../hooks/useFilms";
 import { usePeople } from "../hooks/usePeople";
 import { usePlanets } from "../hooks/usePlanets";
-import Search from "../components/molecules/Search";
+import SearchBar from "../components/molecules/Search";
 import List from "../components/organisms/List";
 import Title from "../components/atoms/Title";
 import { People } from "../adapters/peopleAdapter";
@@ -14,6 +14,7 @@ export default function ListScreen({ route, navigation }: any) {
     
   const { type } = route.params; 
   const [search, setSearch] = useState("");
+  const [query, setQuery] = useState("");
 
 
   const { data: people } = usePeople();
@@ -28,15 +29,16 @@ export default function ListScreen({ route, navigation }: any) {
   };
   
 
-  const filteredData =
-    type === "people" ? data?.filter((p:People) => p.nombre.toLowerCase().includes(search.toLowerCase())) : data;
+  const filteredData = type === "people" 
+    ? data?.filter((p: People) => p.nombre.toLowerCase().includes(query.toLowerCase())) 
+    : data;
 
   return (
     <View style={{ flex: 1, padding: 10,backgroundColor: theme.colors.background }}>
 
     <Title variant="lista">{titles[type] || "Lista"}</Title> 
 
-      {type === "people" && <Search value={search} onChangeText={setSearch} />}
+    {type === "people" && <SearchBar setQuery={setQuery} />} 
 
       {filteredData.length > 0? (
         <List 

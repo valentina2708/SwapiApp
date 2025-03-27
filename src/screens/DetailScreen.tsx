@@ -14,9 +14,9 @@ export default function DetailScreen({ route }: any) {
         { backgroundColor: theme.colors.background },
       ]}
     >
-      <Card style={styles.card}>
+  
         <Detail item={item} type={type} />
-      </Card>
+   
     </ScrollView>
   );
 }
@@ -25,9 +25,7 @@ const styles = StyleSheet.create({
   scrollContainer: {
     flexGrow: 1,
     padding: 20,
-    paddingBottom: 50,
+    paddingBottom: 40,
   },
-  card: {
-    borderRadius: 10,
-  },
+
 });

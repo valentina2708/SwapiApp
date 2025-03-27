@@ -24,11 +24,10 @@ export default function Card({ title, onPress, style, children }: Props) {
       style={[
         styles.card,
         {
-          backgroundColor: isDarkMode
-            ? theme.colors.background
-            : theme.colors.primary,
-          borderColor:  theme.colors.accent,
-          shadowColor:  theme.colors.accent 
+          backgroundColor:
+            theme.colors.background,
+            borderColor: isDarkMode ? theme.colors.accent : theme.colors.primary,
+          shadowColor:  isDarkMode ? theme.colors.accent : theme.colors.secondary,
         },
         style,
       ]}
@@ -36,7 +35,7 @@ export default function Card({ title, onPress, style, children }: Props) {
       <Text
         style={[
           styles.title,
-          { color: isDarkMode ? theme.colors.text : "#ffffff" },
+          { color: isDarkMode ? theme.colors.text : theme.colors.primary },
         ]}
       >
         {title}
@@ -49,7 +48,7 @@ export default function Card({ title, onPress, style, children }: Props) {
 const styles = StyleSheet.create({
   card: {
     borderRadius: 12,
-    padding: 12,
+    padding: 15,
     marginVertical: 10,
     elevation: 8,
     position: "relative",
@@ -62,6 +61,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: "bold",
-    marginBottom: 2,
+    marginBottom: 3,
+  
   },
 });

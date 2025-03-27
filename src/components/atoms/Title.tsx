@@ -2,7 +2,7 @@ import { Text as PaperText } from "react-native-paper";
 import { useTheme } from "../../Context/ThemeContext";
 import { TextStyle } from "react-native";
 
-type VariantType = "home" | "lista" | "detalles";
+type VariantType = "home" | "lista" | "detalles" | "name";
 
 type Props = {
   children: React.ReactNode;
@@ -12,17 +12,25 @@ type Props = {
 
 export default function Title({ children, variant = "home", style }: Props) {
   const { theme } = useTheme();
+  const isDarkMode = theme.dark;
 
   const baseStyle: TextStyle = {
-    color: theme.colors.text,
+
+    color: isDarkMode ? theme.colors.text : theme.colors.accent,
     fontWeight: "bold",
     marginVertical: 10,
   };
 
   const variants: Record<VariantType, TextStyle> = {
-    home: { fontSize: 28, textAlign: "center" },
-    lista: { fontSize: 28, textAlign: "center" },
-    detalles: { fontSize: 24, textAlign: "center", padding:10},
+    name: {
+      fontSize: 30,
+      textAlign: "right",
+      display: "flex",
+      fontWeight: "bold",
+    },
+    home: { fontSize: 20, textAlign: "center", fontWeight: "600" },
+    lista: { fontSize: 24, textAlign: "center" },
+    detalles: { fontSize: 24, textAlign: "center", padding: 10 },
   };
 
   return (

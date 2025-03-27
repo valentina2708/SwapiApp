@@ -5,6 +5,7 @@ import { useNavigation } from "@react-navigation/native";
 import { TouchableOpacity, View } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
+
 type Props = {
   title: string;
 };
@@ -18,7 +19,7 @@ export default function AppBar({ title }: Props) {
       {navigation.canGoBack() && (
         <Appbar.BackAction
           onPress={() => navigation.goBack()}
-          color={theme.colors.text}
+          color={ textColor}
         />
       )}
 
@@ -26,7 +27,9 @@ export default function AppBar({ title }: Props) {
         title={title}
         titleStyle={{ color: textColor, fontWeight: "bold" }}
       />
-
+           
+          
+     
       <View style={{ flexDirection: "row", alignItems: "center", gap: 2 }}>
         <TouchableOpacity onPress={toggleTheme}>
           <MaterialCommunityIcons

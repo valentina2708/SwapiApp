@@ -10,6 +10,7 @@ type Props = {
 
 export default function List({ data, onPress }: Props) {
   const { theme } = useTheme();
+  const isDarkMode = theme.dark;
 
   return (
     <View style={styles.container}>
@@ -23,10 +24,10 @@ export default function List({ data, onPress }: Props) {
                 mode="contained"
                 icon="eye"
                 onPress={() => onPress(item)}
-                style={[styles.button, { backgroundColor: theme.colors.accent }]}
-                labelStyle={[styles.buttonLabel, { color: theme.colors.text }]}
+                style={[styles.button, { backgroundColor: isDarkMode ? theme.colors.accent : theme.colors.primary }]}
+                labelStyle={[styles.buttonLabel, { color: isDarkMode ? theme.colors.text : theme.colors.accent }]}
               >
-                Ver Detalles
+               Ver Detalles
               </Button>
             </View>
           </Card>
@@ -40,7 +41,7 @@ export default function List({ data, onPress }: Props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: 2,
+    paddingHorizontal: 20,
   },
   buttonContainer: {
     marginTop: 8, 
@@ -48,9 +49,12 @@ const styles = StyleSheet.create({
   },
   button: {
     borderRadius: 5,
-    width: "40%",
+    width: 115,
+   
+   
   },
   buttonLabel: {
     fontSize: 12,
+    fontWeight:600
   },
 });
