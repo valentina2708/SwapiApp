@@ -74,9 +74,9 @@ Swapi es una aplicación móvil para gestionar los datos de la API de Star Wars,
     - También cuenta con el switch de modo oscuro/claro.
 
   * Pantalla de Detalles
-   - Muestra información detallada sobre el personaje, película o planeta seleccionado.
-   - Presenta los datos relevantes de cada opción en un diseño organizado y fácil de leer.
-   - Se mantiene la opción de alternar entre modo oscuro y modo claro.
+    - Muestra información detallada sobre el personaje, película o planeta seleccionado.
+    - Presenta los datos relevantes de cada opción en un diseño organizado y fácil de leer.
+    - Se mantiene la opción de alternar entre modo oscuro y modo claro.
 
 
 
