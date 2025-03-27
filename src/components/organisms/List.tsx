@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   },
   button: {
     borderRadius: 5,
-    width: 115,
+    width: "50%",
    
    
   },

@@ -23,18 +23,16 @@ export default function Title({ children, variant = "home", style }: Props) {
 
   const variants: Record<VariantType, TextStyle> = {
     name: {
-      fontSize: 30,
-      textAlign: "right",
-      display: "flex",
+      fontSize: 28,
       fontWeight: "bold",
     },
-    home: { fontSize: 20, textAlign: "center", fontWeight: "600" },
-    lista: { fontSize: 24, textAlign: "center" },
-    detalles: { fontSize: 24, textAlign: "center", padding: 10 },
+    home: { textAlign: "center", },
+    lista: { textAlign: "center" },
+    detalles:{textAlign: "center", padding: 10}  ,
   };
 
   return (
-    <PaperText style={[baseStyle, variants[variant], style]}>
+    <PaperText style={[baseStyle, variants[variant], style]} selectable={false}>
       {children}
     </PaperText>
   );

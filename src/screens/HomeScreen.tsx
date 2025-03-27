@@ -15,11 +15,14 @@ export default function HomeScreen({ navigation }: any) {
           justifyContent: "center",
           alignItems: "center",
           gap: 25,
+      
+         
         }}
       >
         <Title
           style={{
-            color: theme.colors.text,        
+            color: theme.colors.text,  
+            fontSize:28,      
           }}
           variant="name"
         >
@@ -28,6 +31,8 @@ export default function HomeScreen({ navigation }: any) {
 
         <Title
           style={{
+            fontSize:24,
+            fontWeight:400,
             color: theme.colors.text,
             marginBottom: 20,
             padding: 15
